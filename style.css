@@ -1,0 +1,412 @@
+html, body {
+    margin: 0;
+    background-color: #121212;
+    overflow-x: hidden;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'DejavuSansBold';
+    src: url('DejaVuSans-BoldOblique.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DejavuSans';
+    src: url('DejaVuSans.ttf') format('truetype');
+}
+
+header {
+    overflow: hidden; /* Begränsar innehållet till sin egen bredd */
+}
+
+.freeshipping {
+    background-image: linear-gradient(to top, #121212, black);
+    color: white;
+    font-size: 10px;
+    padding: 20px;
+    display: flex; /* Lägger till flexbox */
+    justify-content: center; /* Centrerar horisontellt */
+    align-items: center; /* Centrerar vertikalt */
+    position: relative; /* Lägg till relativ position för att absolut positionerade element ska vara relativa till detta */
+    font-family: DejavuSans, sans-serif;
+}
+
+.freeshipping .freeshippingtext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Flyttar elementet till mitten */
+    transition: opacity 2s ease-in-out;
+}
+
+.freeshipping .newtext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Flyttar elementet till mitten */
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.freeshipping.show .freeshippingtext {
+    opacity: 0;
+}
+
+.freeshipping.show .newtext {
+    opacity: 1;
+}
+
+nav {
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrerar innehållet horisontellt */
+    border-bottom: 5px solid black;
+}
+
+ul {
+    display: flex;
+    color: white;
+    gap: 50px;
+    font-size: 16px;
+}
+
+nav a {
+    color:white;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: DejavuSans, sans-serif;
+}
+
+nav a.alt:hover, nav a.alt:focus {
+    color: white;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white; /* Vit textskugga */
+}
+
+
+figure {
+    display: flex; /* Lägger till flexbox */
+    justify-content: center; /* Centrerar horisontellt */
+    align-items: center;
+}
+
+figure img {
+    width: 13%;
+}
+
+.BigLavy {
+    color: white;
+    text-align: center;
+    font-family: DejavuSansBold, sans-serif;
+    letter-spacing: 10px;
+    font-size: 40px;
+    animation: breathe 3s infinite alternate ease-in-out, shine 6s infinite;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        color: white;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 40px rgba(255, 255, 255, 1);
+    }
+    100% {
+        color: white;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #121212;
+}
+
+.landningVideo {
+    width: 100%;
+}
+
+.break {
+    border-top: 5px solid black;
+}
+
+.collections {
+    display: flex;
+    justify-content: center;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+
+
+.collections figure {
+    transition: transform 0.3s; /* Lägg till övergång för smidig animation */
+    overflow: hidden;
+}
+
+.collections img {
+    width: 450px;
+    min-width: 450px;
+}
+
+.collections figure:hover {
+    transform: scale(1.01); /* Zooma in bilden när musen hovrar över den */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Lägg till en vit skugga runt bilden */
+
+}
+
+.collections figcaption {
+    position: absolute;
+    font-family: DejavuSansBold, sans-serif;
+    font-size: 28px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1.5);
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    pointer-events: none; /* Hindrar figcaption från att interagera med musen */
+
+}
+
+.collections figure:hover figcaption {
+    transform: translateY(0);
+    pointer-events: auto; /* Tillåter figcaption att interagera med musen när figuren hovras */
+}
+
+.showoff img {
+    width: 250px;
+    filter: drop-shadow(black 1rem 1rem 10px);
+}
+
+.showoff img:hover {
+    transform: scale(1.1); /* Zooma in bilden när musen hovrar över den */
+}
+
+.showoff {
+    color: white;
+    font-family: DejavuSansBold;
+    display: flex;
+}
+
+.showoff section {
+    flex-wrap: wrap; /* Gör så att bilderna går till nästa rad */
+    display: flex;
+    width: 40%;
+    padding-left: 60px;
+}
+
+.showoff aside {
+    width: 50%;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 20px;
+}
+
+.showoff h2 {
+    font-size: 40px;
+}
+
+.showoff p {
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: DejavuSans;
+}
+
+.discoverdiv {
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.discoverbutton {
+    background-color: #AD0F15;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 60px rgb(173, 15, 21); /* Lägg till en vit skugga runt bilden */
+}
+
+.discovercollections {
+    color: white;
+    font-size: 20px;
+    font-family: DejavuSansBold, sans-serif;
+    background-color: #AD0F15;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 60px rgb(173, 15, 21); /* Lägg till en vit skugga runt bilden */
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.discoverall {
+    display: flex;
+    justify-content: center;
+}
+
+.discovercollections:hover, .discoverbutton:hover {
+    background-color: #900c12;
+}
+
+.lavygroup {
+    margin-top: 2%;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.lavygroup h2 {
+    font-family: DejavuSansBold, sans-serif;
+    color: white;
+    font-size: 42px;
+}
+
+.lavygroup p {
+    color: white;
+    font-family: DejavuSans;
+    font-size: 90%
+}
+
+input[type="email"] {
+    width: 100%;
+    max-width: 300px;  /* Limit maximum width */
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;  /* Rounded corners */
+    font-size: 16px;  /* Font size */
+    font-family: Arial, sans-serif;  /* Font family */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);  /* Subtle inner shadow */
+    transition: border-color 0.3s, box-shadow 0.3s;  /* Smooth transition */
+    border: 5px solid white;
+}
+
+/* Placeholder styling */
+input[type="email"]::placeholder {
+    color: #999;  /* Placeholder text color */
+    font-style: italic;  /* Italic placeholder text */
+}
+
+/* Focus state styling */
+input[type="email"]:focus {
+    border: 5px solid #007BFF;  /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  /* Blue outer glow */
+    outline: none;  /* Remove default outline */
+}
+
+
+
+/* Container for the Instagram collection */
+.instagramcollection {
+    margin-top: 4%;
+    margin-bottom: 4.1%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust this value to set the space between the images */
+    justify-content: center;
+}
+
+/* Ensuring the figures maintain the aspect ratio of the images */
+.instagramcollection figure {
+    margin: 0;
+    padding: 0;
+    flex: 0 0 200px; /* Make sure each figure is 200px wide */
+    transition: transform 0.2s;
+
+}
+
+/* Style for the images */
+.instagramcollection img {
+    width: 100%; /* Make the image take up the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure th    e images are block-level elements */
+}
+
+.instagramcollection figure:hover {
+    transform: scale(1.1); /* Zooma in bilden när musen hovrar över den */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Lägg till en vit skugga runt bilden */
+}
+
+footer {
+    margin-top: 4.7%;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-image: linear-gradient(to top, #121212, black);
+    height: 450px;
+}
+
+.support {
+    color: white;
+    font-family: DejavuSansBold;
+    font-size: 15px;
+    margin-left: 13%;
+
+}
+
+.support a {
+    font-family: DejavuSans, sans-serif;
+    font-size: 15px;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.support a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.support section {
+    padding-top: 3%;
+}
+
+.support section p {
+    font-family: DejavuSans;
+    color: lightgrey;
+    font-size: 90%;
+}
+
+.fotterkort {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.fotterkort img {
+    width: 35%;
+}
+
+.fotterlavy {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.fotterlavy p {
+    font-family: DejavuSansBold, sans-serif;
+    color: white;
+    font-size: 70%;
+}
+
